@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=File Downloader (aria2c)
+#Exec=/usr/bin/aria2c -d ~/Downloads %U
+Exec=downloader.sh %U

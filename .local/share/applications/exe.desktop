@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Game Laucher (wine)
+Exec=/usr/bin/wine %f

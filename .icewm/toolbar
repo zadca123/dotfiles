@@ -1,0 +1,14 @@
+# This is an example for icewm 1.8.3 toolbar definition file.
+# It will be installed as /usr/share/icewm/toolbar.
+# Place your variants in /etc/icewm or in $HOME/.icewm since
+# modifications to this file will be overwritten when you reinstall icewm.
+#
+# prog "<name>" <icon-name> <program>
+prog "Terminal" utilities-terminal alacritty
+prog "DOOM Emacs" emacs emacsclient -c -a emacs
+prog "File Manager" pcmanfm pcmanfm
+prog "vimb" web-browser xdg-open about:blank
+prog "waterfox-current" waterfox-current waterfox-current about:blank
+prog "Team Speak 3" teamspeak3 teamspeak3
+prog "Audio Manager" pavucontrol pavucontrol
+prog "Music Player" quodlibet alacritty -t "Cmus" -e dtach -A cmux cmus

@@ -1,0 +1,116 @@
+live-filter choral
+live-filter ambient
+live-filter 
+live-filter robert rich
+add /mnt/elements/multimedia/music/
+add /mnt/elements/multimedia/music/Ambient Music/
+live-filter L
+add /mnt/toshiba/torrents/transmission_finished/
+add /mnt/elements/multimedia/music/Discographies/Burzum Discography [FLAC] [Black Metal, Ambient]/
+add /mnt/crucial_nvme/Torrents/[Nemuri] STEINS;GATE シュタインズ・ゲート (2009-2020) [FLAC]/
+dele
+filter 
+set status_display_program=~/.local/bin/cmus-notify.sh
+filter 1;5D1;5D
+update-cache 
+add ~/Music/
+clear
+colorscheme amazon
+live-filter
+live-filter :
+colorscheme gray-88
+live-filter co
+colorscheme dracula
+colorscheme cyan
+colorscheme zenburn
+colorscheme default
+colorscheme green-mono-88
+colorscheme green
+cd .config/cmus/
+cd ~/
+ls
+set status_display_program=~/.local/bin/cmus-notify-python.sh
+set status_display_program=~/.local/bin/cmus-status-display.sh
+q
+filter classical
+live-filte
+des
+live-filter flac
+add ~/Torrents/transmission_finished/
+add ~/Music/test
+set lib_add_filter=(filename="*.flac" || filename="*.ogg"
+set lib_add_filter=()filename="*.mkv"
+set lib_add_filter=ogg
+:set status_display_program=~/.local/bin/cmus_notify.sh
+set lib_add_filter=filename="*.mkv"
+set lib_add_filter=video
+add ~/Music/test/1-01 - Oto ni Dekiru Koto.mp3
+add ~/Music/test/
+filter
+live-filter ogg
+ogg
+live-filter mp4
+live-filter mkv
+live-filter ~/T
+filterset 
+filter "*.mp4"
+filter mkv
+filter ogg
+filter ogg-or-mp3
+filter off
+live-filter oggor
+colorscheme xterm-white
+colorscheme solarized-dark
+colorscheme gruvbox-alt
+live-filter ci
+colorscheme gruvbox
+colorscheme jellybeans
+colorscheme solarized-light
+colorscheme night
+co
+live-filter LLLLLLLLLlllllll
+live-filter ciki
+add
+add ~/music/
+add music
+add ~/music
+filter s
+set status_display_program=~/.local/bin/cmus_notify.sh
+live-filter undertale
+live-filter the last battle
+live-filter planetes
+live-filter hito yo
+live-filter wonderful 
+sor
+bind -f common r toggle repeat
+live-filter overture
+live-filter part v
+live-filter cyberpunk
+pwd
+live-filter scream saya
+live-filter rrr
+live-filter david bowie
+live-filter music for flute and piano
+live-filter update
+search
+update
+live-filter scream saya no
+dav
+U
+add ~/Music/55 Tracks Nature Sounds  Songs Playlist (ETTV)  [320]  kbps Beats⭐/
+fset 90s=date>=1990&date<2000
+live-filter add
+add ./
+add Tangerine Dream - Studio Albums 1970-2017 Part 1/
+add Tangerine Dream - Studio Albums 1970-2017 Part 2/
+add Tangerine Dream - Studio Albums 1970-2017 Part 1/ 
+browser-up
+win-update
+update-cache
+cd ~/Music/
+u
+add /mnt/toshiba/torrents/MEGASync/
+add ~/Music/higurashi-soundcanvas-patch/
+add /mnt/seagate/Desktop_Symlink/Music/higurashi-sooundcanvas-loseless/
+add ~/Music
+add ~/Music/Demon's Souls Original Soundtrack/

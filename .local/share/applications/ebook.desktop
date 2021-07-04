@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Calibre Reader (ebook-viewer)
+Exec=/usr/bin/ebook-viewer --detach %f

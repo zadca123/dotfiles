@@ -1,0 +1,264 @@
+!  ____ _____ 
+! |  _ \_   _|  Derek Taylor (DistroTube)
+! | | | || |    http://www.youtube.com/c/DistroTube
+! | |_| || |    http://www.gitlab.com/dwt1/ 
+! |____/ |_|  	
+
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+!! for XTerm and UXTerm
+*renderFont: true
+*faceName: DejaVu Sans Mono
+*faceSize: 14
+*utf8: 2
+*locale: true
+*.vt100.translations: #override \n\
+  Ctrl <Key> j: smaller-vt-font() \n\
+  Ctrl <Key> k: larger-vt-font()
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+*loginshell: true
+! I like a LOT of scrollback...
+*savelines: 16384
+! double-click to select whole URLs :D
+*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+URxvt*imLocale: en_US.UTF-8
+URxvt*termName: rxvt-unicode-256color
+URxvt*buffered: false
+URxvt.intensityStyles: false
+URxvt.font: xft:monospace:size=10
+
+URxvt.scrollBar: false
+URxvt.cursorColor: white
+
+!! Extensions
+URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select,clipboard
+URxvt.colorUL: #4682B4
+!! url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: urxvt -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
+URxvt.url-select.underline: true
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! resize-font
+URxvt.keysym.C-k:   font-size:increase
+URxvt.keysym.C-j:   font-size:decrease
+!! Matcher
+URxvt.url-launcher:	urxvt -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
+URxvt.matcher.button: 1
+!!clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt*depth: 32
+
+
+!!COLOR SCHEMES
+!! Nord
+!*background: #161821
+!*foreground: #d2d4de
+!*color0: #161821
+!*color1: #e27878
+!*color2: #b4be82
+!*color3: #e2a478
+!*color4: #84a0c6
+!*color5: #a093c7
+!*color6: #89b8c2
+!*color7: #c6c8d1
+!*color8: #6b7089
+!*color9: #e98989
+!*color10: #c0ca8e
+!*color11: #e9b189
+!*color12: #91acd1
+!*color13: #ada0d3
+!*color14: #95c4ce
+!*color15: #d2d4de
+
+
+!! Gruvbox
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
+
+!!!Solarized
+!*background: #002b36
+!*foreground: #657b83
+!!!*fading: 40
+!*fadeColor: #002b36
+!*cursorColor: #93a1a1
+!*pointerColorBackground: #586e75
+!*pointerColorForeground: #93a1a1
+!
+!!! black dark/light
+!*color0: #073642
+!*color8: #002b36
+!
+!!! red dark/light
+!*color1: #dc322f
+!*color9: #cb4b16
+!
+!!! green dark/light
+!*color2: #859900
+!*color10: #586e75
+!
+!!! yellow dark/light
+!*color3: #b58900
+!*color11: #657b83
+!
+!!! blue dark/light
+!*color4: #268bd2
+!*color12: #839496
+!
+!!! magenta dark/light
+!*color5: #d33682
+!*color13: #6c71c4
+!
+!!! cyan dark/light
+!*color6: #2aa198
+!*color14: #93a1a1
+!
+!!! white dark/light
+!*color7: #eee8d5
+!*color15: #fdf6e3
+
+!!! IDK
+!URxvt*foreground:   #bbc5ff
+!URxvt*background:   [95]#282a36
+!URxvt*cursorColor:  #bbc5ff
+!
+!XTerm*foreground: #bbc5ff
+!XTerm*background: #282a36
+!XTerm*cursorColor: #bbc5ff
+!
+!! black
+!*.color0:       #101010  !! originally #292d3e
+!*.color8:       #434758
+!! red
+!*.color1:       #f07178
+!*.color9:       #ff8b92
+!! green
+!*.color2:       #c3e88d
+!*.color10:      #ddffa7
+!! yellow
+!*.color3:       #ffcb6b
+!*.color11:      #ffe585
+!! blue
+!*.color4:       #82aaff
+!*.color12:      #9cc4ff
+!! magenta
+!*.color5:       #c792ea
+!*.color13:      #e1acff
+!! cyan
+!*.color6:       #89ddff
+!*.color14:      #a3f7ff
+!! white
+!*.color7:       #d0d0d0
+!*.color15:      #ffffff
+
+!!! IDK2
+!! special
+!*.foreground:   #bbc2cf
+!*.background:   #282c34
+!*.cursorColor:  #bbc2cf
+!
+!! black
+!*.color0:       #1c1f24
+!*.color8:       #5b6268
+!
+!! red
+!*.color1:       #ff6c6b
+!*.color9:       #da8548
+!
+!! green
+!*.color2:       #98be65
+!*.color10:      #4db5bd
+!
+!! yellow
+!*.color3:       #da8548
+!*.color11:      #ecbe7b
+!
+!! blue
+!*.color4:       #51afef
+!*.color12:      #2257a0
+!
+!! magenta
+!*.color5:       #c678dd
+!*.color13:      #a9a1e1
+!
+!! cyan
+!*.color6:       #5699af
+!*.color14:      #46d9ff
+!
+!! white
+!*.color7:       #202328
+!*.color15:      #dfdfdf
+
+
+
+!! special
+!*.foreground:   #bbc2cf
+!*.background:   #282c34
+!*.cursorColor:  #bbc2cf
+!
+!! black
+!*.color0:       #1c1f24
+!*.color8:       #5b6268
+!
+!! red
+!*.color1:       #ff6c6b
+!*.color9:       #da8548
+!
+!! green
+!*.color2:       #98be65
+!*.color10:      #4db5bd
+!
+!! yellow
+!*.color3:       #da8548
+!*.color11:      #ecbe7b
+!
+!! blue
+!*.color4:       #51afef
+!*.color12:      #3071db
+!
+!! magenta
+!*.color5:       #c678dd
+!*.color13:      #a9a1e1
+!
+!! cyan
+!*.color6:       #5699af
+!*.color14:      #46d9ff
+!
+!! white
+!*.color7:       #202328
+!*.color15:      #dfdfdf

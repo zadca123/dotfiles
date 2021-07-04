@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=vivaldi - Web Browser
+Icon=vivaldi
+Exec=/usr/bin/vivaldi-stable %u

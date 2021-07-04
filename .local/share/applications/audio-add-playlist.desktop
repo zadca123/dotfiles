@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Music Player
+Exec=/usr/bin/cmus-remote --queue %f

@@ -1,0 +1,417 @@
+### AUTOSTART ###
+exec --no-startup-id nitrogen --set-zoom-fill --random
+exec --no-startup-id transmission-init.sh
+exec --no-startup-id tmux-session.sh
+# exec --no-startup-id audacious -p
+# exec --no-startup-id polybar.sh
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+### FONT ###
+# font pango:Iosevka Term 12
+font pango:DejaVu Sans Mono 11
+
+### ESSENTIAL ###
+set $mod Mod4
+set $myTerm alacritty
+floating_modifier $mod
+
+# bindsym $mod+Shift+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec $myTerm
+bindsym $mod+q kill
+bindsym $mod+p exec --no-startup-id dmenu_run -i
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# change focus
+bindsym $mod+h 	focus left
+bindsym $mod+j 	focus down
+bindsym $mod+k 	focus up
+bindsym $mod+l 	focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move right
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h 	resize shrink width 10 px or 10 ppt
+        bindsym j 	resize grow height 10 px or 10 ppt
+        bindsym k 	resize shrink height 10 px or 10 ppt
+        bindsym l 	resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left 	resize shrink width 10 px or 10 ppt
+        bindsym Down 	resize grow height 10 px or 10 ppt
+        bindsym Up 	resize shrink height 10 px or 10 ppt
+        bindsym Right 	resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# as per i3wm website
+# class                 border  backgr. text    indicator child_border
+# client.focused        #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused          #b8bb26 #98971a #ebdbb2 #b8bb26   #98971a
+client.unfocused        #928374 #282828 #a89984 #282828   #282828
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	position top
+	height 20
+        status_command i3blocks
+	colors {
+        separator #ebdbb2
+        statusline #ebdbb2
+        background #282828
+        # focused_workspace #d3869b #b16286 #ebdbb2
+        # active_workspace #333333 #333333 #ebdbb2
+        # inactive_workspace #333333 #333333 #888888
+        # urgent_workspace #2f343a #900000 #ebdbb2
+    }
+# # Colors (Gruvbox dark)
+#   # Normal colors
+#   normal:
+#     black:   '#282828'
+#     red:     '#cc241d'
+#     green:   '#98971a'
+#     yellow:  '#d79921'
+#     blue:    '#458588'
+#     magenta: '#b16286'
+#     cyan:    '#689d6a'
+#     white:   '#a89984'
+
+#   # Bright colors
+#   bright:
+#     black:   '#928374'
+#     red:     '#fb4934'
+#     green:   '#b8bb26'
+#     yellow:  '#fabd2f'
+#     blue:    '#83a598'
+#     magenta: '#d3869b'
+#     cyan:    '#8ec07c'
+#     white:   '#ebdbb2'
+}
+
+#: Gaps {{{
+set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_horiz Horizontal Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_verti Vertical Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_top Top Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_right Right Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_bottom Bottom Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_left Left Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym h      mode "$mode_gaps_horiz"
+        bindsym v      mode "$mode_gaps_verti"
+        bindsym t      mode "$mode_gaps_top"
+        bindsym r      mode "$mode_gaps_right"
+        bindsym b      mode "$mode_gaps_bottom"
+        bindsym l      mode "$mode_gaps_left"
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_horiz" {
+        bindsym plus  gaps horizontal current plus 5
+        bindsym minus gaps horizontal current minus 5
+        bindsym 0     gaps horizontal current set 0
+
+        bindsym Shift+plus  gaps horizontal all plus 5
+        bindsym Shift+minus gaps horizontal all minus 5
+        bindsym Shift+0     gaps horizontal all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_verti" {
+        bindsym plus  gaps vertical current plus 5
+        bindsym minus gaps vertical current minus 5
+        bindsym 0     gaps vertical current set 0
+
+        bindsym Shift+plus  gaps vertical all plus 5
+        bindsym Shift+minus gaps vertical all minus 5
+        bindsym Shift+0     gaps vertical all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_top" {
+        bindsym plus  gaps top current plus 5
+        bindsym minus gaps top current minus 5
+        bindsym 0     gaps top current set 0
+
+        bindsym Shift+plus  gaps top all plus 5
+        bindsym Shift+minus gaps top all minus 5
+        bindsym Shift+0     gaps top all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_right" {
+        bindsym plus  gaps right current plus 5
+        bindsym minus gaps right current minus 5
+        bindsym 0     gaps right current set 0
+
+        bindsym Shift+plus  gaps right all plus 5
+        bindsym Shift+minus gaps right all minus 5
+        bindsym Shift+0     gaps right all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_bottom" {
+        bindsym plus  gaps bottom current plus 5
+        bindsym minus gaps bottom current minus 5
+        bindsym 0     gaps bottom current set 0
+
+        bindsym Shift+plus  gaps bottom all plus 5
+        bindsym Shift+minus gaps bottom all minus 5
+        bindsym Shift+0     gaps bottom all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_left" {
+        bindsym plus  gaps left current plus 5
+        bindsym minus gaps left current minus 5
+        bindsym 0     gaps left current set 0
+
+        bindsym Shift+plus  gaps left all plus 5
+        bindsym Shift+minus gaps left all minus 5
+        bindsym Shift+0     gaps left all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}
+#: }}}
+
+# FLOATING EXEPTIONS / RULES {{{
+gaps inner 6
+gaps outer 6
+
+#Add this to get rid of titlebars because gaps doen't work with titlebars:
+for_window [class="^.*"] border pixel 2
+
+# WM_CLASS(STRING) = "microsoft teams - preview", "Microsoft Teams - Preview"
+for_window [title="Upload to Imgur"]	 	floating enable
+for_window [class="TeamSpeak 3"] 		move to workspace $ws9
+for_window [class="discord"] 		move to workspace $ws9
+for_window [class="Steam"]		 	move to workspace $ws7
+for_window [class="Steam"]		 	floating enable
+for_window [class="Pale moon"]		 	move to workspace $ws4
+for_window [class="Vivaldi-stable"]	 	move to workspace $ws4
+for_window [class="Microsoft.*"]	 	move to workspace $ws2
+# for_window [class=".*.exe"]		 	move to workspace $ws8
+# for_window [class=".*.exe"]		 	floating enable
+for_window [class="SimpleScreenRecorder"] 	move to workspace $ws1
+for_window [class="SimpleScreenRecorder"] 	floating enable
+for_window [class="ROX-Filer"]			floating enable
+for_window [class="Qalculate-gtk"]	 	floating enable
+# for_window [class="feh"]		 	floating enable
+# for_window [class="Sxiv"]		 	floating enable
+# for_window [class="Pqiv"]		 	floating enable
+for_window [class="Xarchiver"]		 	floating enable
+for_window [class="Leafpad"]		 	floating enable
+# for_window [class="nvim-qt"]		 	floating enable
+for_window [class="qalc"]		 	floating enable
+for_window [class="Connman-gtk"]	 	floating enable
+for_window [class="Audacious"]		 	floating enable
+for_window [class="Quodlibet"]		 	floating enable
+for_window [class="Lxappearance"]	 	floating enable
+for_window [class="Pidgin"]		 	floating enable
+for_window [title="nvim"]		 	floating enable
+for_window [title="pulsemixer"]		 	floating enable
+for_window [title="Library"]		 	floating enable
+# for_window [title="Pale Moon .*"]	 	floating enable
+for_window [window_role="About"] 		floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [title="Preferences$"] floating enable
+# }}}
+
+# MY KEYBINDINGS {{{
+bindsym $mod+Shift+Tab		focus left
+bindsym $mod+Tab		focus right
+bindsym $mod+x			exec xkill
+bindsym Mod1+l			exec i3lock-wrapper
+# Rofi
+bindsym $mod+F12 		exec rofi -show calc -modi "calc:qalc +u8 -nocurrencies"
+bindsym Mod1+p 			exec rofi -show drun -show-icons
+bindsym Mod1+Tab 		exec rofi -show window -show-icons
+bindsym Mod1+Shift+o 		exec rofi -modi "emoji:rofimoji -a clipboard" -show emoji
+
+# Screen capture
+bindsym Print			exec flameshot gui
+bindsym $mod+Print		exec screenshot.sh full
+bindsym Mod1+Shift+f		exec screenshot.sh focused
+bindsym Mod1+Shift+c		exec screenshot.sh select
+bindsym Mod1+c			exec screenshot.sh clipboard
+bindsym Mod1+1			exec screenshot.sh 16x9
+bindsym Mod1+4			exec screenshot.sh 4x3
+# Audio
+bindsym $mod+F2 		exec pamixer --decrease 2
+bindsym $mod+F3 		exec pamixer --increase 2
+bindsym $mod+F4 		exec pamixer --toggle-mute
+bindsym Mod1+F1 		exec $myTERM -e tmux-session.sh
+bindsym Mod1+F2 		exec cmus-remote --volume -2% # vol dec
+bindsym Mod1+F3 		exec cmus-remote --volume +2% # vol inc
+bindsym Mod1+Shift+F5 		exec cmus-remote -S # shuffle toggle
+bindsym Mod1+F5 		exec cmus-remote -s # stop
+bindsym Mod1+F6 		exec cmus-remote -r # prev toggle
+bindsym Mod1+F7 		exec cmus-remote -u # play toggle
+bindsym Mod1+F8 		exec cmus-remote -n # next
+bindsym Mod1+i			exec cmus-notify.sh # current song info
+bindsym Mod1+Shift+i	exec xdg-open /tmp/cover_full_res.png # current song info
+bindsym Mod1+F9			exec $myTerm -e dtach -A /tmp/dtach_aerc aerc
+bindsym Mod1+F11		exec $myTerm -e bpytop
+bindsym Mod1+F12		exec qalculate-gtk
+bindsym Mod1+Shift+F12		exec $myTerm -e qalc
+
+# Misc / Comment this section during gaming on keyboard
+bindsym Mod1+g			exec steam
+bindsym Mod1+Shift+t		exec teamspeak3
+bindsym Mod1+Shift+v 		exec qutebrowser "qute://settings"
+# bindsym Mod1+v 			exec vimb
+bindsym Mod1+a			exec $myTerm -e pulsemixer
+bindsym Mod1+Shift+a		exec pavucontrol
+bindsym Mod1+b			exec vivaldi-stable
+# bindsym Mod1+b			exec palemoon
+bindsym Mod1+Shift+n 		exec nitrogen --set-zoom-fill --random
+bindsym Mod1+Ctrl+t 	exec $myTerm -e tmux-session.sh
+bindsym Mod1+Ctrl+l		exec $myTerm -e dtach -A /tmp/ffx fff
+bindsym Mod1+d 			exec $myTerm -e stig
+bindsym Mod1+r 			exec redshift -b 0.95 -O 5000K
+bindsym Mod1+Shift+r 		exec redshift -x
+bindsym Mod1+e			exec emacsclient -a "" -c
+bindsym Mod1+Shift+e		exec nvim-qt --no-ext-tabline
+bindsym Mod1+f 			exec rox
+bindsym $mod+b			exec polybar-msg cmd toggle
+bindsym $mod+Shift+x 		exec xkill
+
+# split in horizontal orientation
+bindsym $mod+o split h
+#split in vertical orientation
+bindsym $mod+u split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# focus the parent container
+bindsym $mod+a focus parent
+# focus the child container
+bindsym $mod+d focus child

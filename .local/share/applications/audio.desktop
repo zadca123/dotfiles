@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Music Player (mpv)
+Exec=/usr/bin/mpv --no-audio-display --volume=50 %f

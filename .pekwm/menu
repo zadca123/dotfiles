@@ -1,0 +1,301 @@
+Rootmenu = "/" {
+    Submenu = "Development" {
+        Entry = "CMake" { Actions = "Exec cmake-gui &" }
+        Entry = "CMake curses GUI (ccmake)" { Actions = "Exec st -e ccmake &" }
+        Entry = "EasyEDA" { Actions = "Exec /opt/easyeda/easyeda &" }
+        Entry = "Electron" { Actions = "Exec electron &" }
+        Entry = "Fluid" { Actions = "Exec fluid &" }
+        Entry = "GHex" { Actions = "Exec ghex &" }
+        Entry = "IDLE (Python IDE)" { Actions = "Exec idle &" }
+        Entry = "Notepadqq" { Actions = "Exec notepadqq &" }
+        Entry = "Python" { Actions = "Exec st -e python &" }
+        Entry = "Python (v2.7)" { Actions = "Exec st -e python2.7 &" }
+        Entry = "Qt Assistant" { Actions = "Exec assistant &" }
+        Entry = "Qt Designer" { Actions = "Exec designer &" }
+        Entry = "Qt Linguist" { Actions = "Exec linguist &" }
+        Entry = "Qt QDbusViewer" { Actions = "Exec qdbusviewer &" }
+        Entry = "SWI-Prolog" { Actions = "Exec st -e swipl &" }
+        Entry = "Tclsh8.6" { Actions = "Exec st -e tclsh8.6 &" }
+        Entry = "UMLet" { Actions = "Exec umlet &" }
+    }
+    Submenu = "Editors" {
+        Entry = "AA Fire" { Actions = "Exec st -e aafire -driver slang &" }
+        Entry = "Emacs" { Actions = "Exec st -e emacs &" }
+        Entry = "Leafpad" { Actions = "Exec leafpad &" }
+        Entry = "Mousepad" { Actions = "Exec mousepad &" }
+        Entry = "Neovim" { Actions = "Exec st -e nvim &" }
+        Entry = "Neovim-Qt" { Actions = "Exec nvim-qt &" }
+        Entry = "Vi" { Actions = "Exec st -e vi &" }
+        Entry = "Vim" { Actions = "Exec st -e vim &" }
+    }
+    Submenu = "Games" {
+        Submenu = "Adventure" {
+            Entry = "Sclient" { Actions = "Exec sclient &" }
+        }
+        Submenu = "Arcade" {
+            Entry = "PacMan" { Actions = "Exec pacman &" }
+        }
+        Entry = "A Short Hike" { Actions = "Exec steam steam://rungameid/1055540 &" }
+        Entry = "Bastion" { Actions = "Exec steam steam://rungameid/107100 &" }
+        Entry = "DeSmuME (Gtk)" { Actions = "Exec desmume &" }
+        Entry = "ePSXe" { Actions = "Exec epsxe &" }
+        Entry = "Half-Life 2" { Actions = "Exec steam steam://rungameid/220 &" }
+        Entry = "Kingdom Two Crowns" { Actions = "Exec steam steam://rungameid/701160 &" }
+        Entry = "mGBA" { Actions = "Exec mgba-qt &" }
+        Entry = "Monster Hunter: World" { Actions = "Exec steam steam://rungameid/582010 &" }
+        Entry = "NARUTO SHIPPUDEN - Ultimate Ninja STORM 2" { Actions = "Exec env WINEPREFIX="/home/zadca123/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/zadca123/.wine/dosdevices/c:/ProgramData/Microsoft/Windows/Start\\ Menu/Programs/Games/NARUTO\\ SHIPPUDEN\\ -\\ Ultimate\\ Ninja\\ STORM\\ 2/NARUTO\\ SHIPPUDEN\\ -\\ Ultimate\\ Ninja\\ STORM\\ 2.lnk &" }
+        Entry = "NARUTO SHIPPUDEN: Ultimate Ninja STORM 2" { Actions = "Exec steam steam://rungameid/543870 &" }
+        Entry = "NARUTO SHIPPUDEN: Ultimate Ninja STORM 3 Full Burst" { Actions = "Exec steam steam://rungameid/234670 &" }
+        Entry = "PCSX2" { Actions = "Exec env GDK_BACKEND=x11 __GL_THREADED_OPTIMIZATIONS=1 mesa_glthread=true MESA_NO_ERROR=1 PCSX2 &" }
+        Entry = "Resident Evil" { Actions = "Exec steam steam://rungameid/304240 &" }
+        Entry = "Risk of Rain 2" { Actions = "Exec steam steam://rungameid/632360 &" }
+        Entry = "SOMA" { Actions = "Exec steam steam://rungameid/282140 &" }
+        Entry = "Spelunky" { Actions = "Exec steam steam://rungameid/239350 &" }
+        Entry = "SYNTHETIK" { Actions = "Exec steam steam://rungameid/528230 &" }
+        Entry = "The Elder Scrolls V: Skyrim" { Actions = "Exec steam steam://rungameid/72850 &" }
+        Entry = "The Forest" { Actions = "Exec steam steam://rungameid/242760 &" }
+        Entry = "The Talos Principle" { Actions = "Exec steam steam://rungameid/257510 &" }
+        Entry = "Undertale" { Actions = "Exec steam steam://rungameid/391540 &" }
+        Entry = "Uninstall NARUTO SHIPPUDEN - Ultimate Ninja STORM 2" { Actions = "Exec env WINEPREFIX="/home/zadca123/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/zadca123/.wine/dosdevices/c:/ProgramData/Microsoft/Windows/Start\\ Menu/Programs/Games/NARUTO\\ SHIPPUDEN\\ -\\ Ultimate\\ Ninja\\ STORM\\ 2/Uninstall\\ NARUTO\\ SHIPPUDEN\\ -\\ Ultimate\\ Ninja\\ STORM\\ 2.lnk &" }
+        Entry = "Unrailed!" { Actions = "Exec steam steam://rungameid/1016920 &" }
+    }
+    Submenu = "Graphics" {
+        Entry = "dotty" { Actions = "Exec dotty &" }
+        Entry = "E-book viewer" { Actions = "Exec ebook-viewer &" }
+        Entry = "Flameshot" { Actions = "Exec flameshot &" }
+        Entry = "GNU Image Manipulation Program" { Actions = "Exec gimp-2.10 &" }
+        Entry = "Gpick" { Actions = "Exec gpick &" }
+        Entry = "GraphicsMagick" { Actions = "Exec gm display logo: &" }
+        Entry = "Inkscape" { Actions = "Exec inkscape &" }
+        Entry = "lefty" { Actions = "Exec lefty &" }
+        Entry = "LibreOffice Draw" { Actions = "Exec libreoffice --draw &" }
+        Entry = "LRF viewer" { Actions = "Exec lrfviewer &" }
+        Entry = "MyPaint" { Actions = "Exec mypaint &" }
+        Entry = "The GIMP" { Actions = "Exec gimp &" }
+        Entry = "XDvi" { Actions = "Exec xdvi &" }
+        Entry = "XGlyph" { Actions = "Exec xglyph &" }
+    }
+    Submenu = "Multimedia" {
+        Entry = "ALSA mixer" { Actions = "Exec st -e alsamixer &" }
+        Entry = "Audacious" { Actions = "Exec audacious &" }
+        Entry = "DeaDBeeF" { Actions = "Exec deadbeef &" }
+        Entry = "Ex Falso" { Actions = "Exec exfalso &" }
+        Entry = "GTK Pipe Viewer" { Actions = "Exec gtk-pipe-viewer &" }
+        Entry = "moc" { Actions = "Exec st -e mocp &" }
+        Entry = "mpv Media Player" { Actions = "Exec mpv --player-operation-mode=pseudo-gui &" }
+        Entry = "ncmpcpp" { Actions = "Exec st -e ncmpcpp &" }
+        Entry = "projectM PulseAudio Visualization" { Actions = "Exec projectM-pulseaudio &" }
+        Entry = "PulseAudio Volume Control" { Actions = "Exec pavucontrol &" }
+        Entry = "QNapi" { Actions = "Exec qnapi &" }
+        Entry = "Qt V4L2 test Utility" { Actions = "Exec qv4l2 &" }
+        Entry = "Qt V4L2 video capture utility" { Actions = "Exec qvidcap &" }
+        Entry = "Quod Libet" { Actions = "Exec quodlibet --run &" }
+        Entry = "Quod Libet" { Actions = "Exec quodlibet &" }
+        Entry = "SimpleScreenRecorder" { Actions = "Exec simplescreenrecorder --logfile &" }
+        Entry = "SMPlayer" { Actions = "Exec smplayer &" }
+        Entry = "Strawberry" { Actions = "Exec strawberry &" }
+        Entry = "transcriber" { Actions = "Exec trans &" }
+        Entry = "VLC media player" { Actions = "Exec vlc &" }
+        Entry = "VLC media player" { Actions = "Exec qvlc &" }
+        Entry = "Volume Icon" { Actions = "Exec volumeicon &" }
+        Entry = "Xfburn" { Actions = "Exec xfburn &" }
+    }
+    Submenu = "Network" {
+        Entry = "Amfora" { Actions = "Exec st -e amfora &" }
+        Entry = "Avahi SSH Server Browser" { Actions = "Exec bssh &" }
+        Entry = "Avahi VNC Server Browser" { Actions = "Exec bvnc &" }
+        Entry = "Discord" { Actions = "Exec discord &" }
+        Entry = "Element" { Actions = "Exec element-desktop &" }
+        Entry = "ELinks" { Actions = "Exec st -e elinks &" }
+        Entry = "EtherApe" { Actions = "Exec etherape &" }
+        Entry = "FTP" { Actions = "Exec st -e ftp &" }
+        Entry = "LibreWolf" { Actions = "Exec /usr/lib/librewolf/librewolf &" }
+        Entry = "Mail" { Actions = "Exec st -e mail &" }
+        Entry = "Mail Reader" { Actions = "Exec exo-open --launch MailReader &" }
+        Entry = "MEGAsync" { Actions = "Exec megasync &" }
+        Entry = "Microsoft Teams - Preview" { Actions = "Exec teams &" }
+        Entry = "Notmuch (emacs interface)" { Actions = "Exec notmuch-emacs-mua &" }
+        Entry = "Pale Moon" { Actions = "Exec palemoon &" }
+        Entry = "Pidgin Internet Messenger" { Actions = "Exec pidgin &" }
+        Entry = "PuTTY" { Actions = "Exec putty &" }
+        Entry = "qTox" { Actions = "Exec qtox &" }
+        Entry = "Remmina" { Actions = "Exec remmina-file-wrapper &" }
+        Entry = "Steam (Runtime)" { Actions = "Exec steam-runtime &" }
+        Entry = "Talk" { Actions = "Exec st -e talk &" }
+        Entry = "TeamSpeak 3" { Actions = "Exec teamspeak3 &" }
+        Entry = "Telnet" { Actions = "Exec st -e telnet &" }
+        Entry = "TkVNC" { Actions = "Exec xterm -e tkvnc &" }
+        Entry = "Tor Browser" { Actions = "Exec torbrowser-launcher &" }
+        Entry = "Tor Browser Launcher Settings" { Actions = "Exec torbrowser-launcher --settings &" }
+        Entry = "Transmission Remote" { Actions = "Exec transmission-remote-gtk &" }
+        Entry = "vimb" { Actions = "Exec vimb &" }
+        Entry = "W3m" { Actions = "Exec st -e w3m &" }
+        Entry = "w3m" { Actions = "Exec st -e w3m /usr/share/doc/w3m/MANUAL.html &" }
+        Entry = "Web Browser" { Actions = "Exec exo-open --launch WebBrowser &" }
+        Entry = "WeeChat" { Actions = "Exec st -e weechat &" }
+        Entry = "Wireshark" { Actions = "Exec wireshark &" }
+    }
+    Submenu = "Office" {
+        Entry = "Calibre" { Actions = "Exec calibre &" }
+        Entry = "Dictionary" { Actions = "Exec xfce4-dict &" }
+        Entry = "E-book editor" { Actions = "Exec ebook-edit &" }
+        Entry = "LibreOffice Calc" { Actions = "Exec libreoffice --calc &" }
+        Entry = "LibreOffice Impress" { Actions = "Exec libreoffice &" }
+        Entry = "LibreOffice Impress" { Actions = "Exec libreoffice --impress &" }
+        Entry = "LibreOffice Math" { Actions = "Exec libreoffice --math &" }
+        Entry = "LibreOffice Writer" { Actions = "Exec libreoffice --writer &" }
+        Entry = "Manual" { Actions = "Exec env WINEPREFIX="/home/zadca123/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/zadca123/.wine/dosdevices/c:/ProgramData/Microsoft/Windows/Start\\ Menu/Programs/GOG.com/Freedom\\ Force\\ vs\\ the\\ 3rd\\ Reich/Documents/Manual.lnk &" }
+        Entry = "Manual" { Actions = "Exec env WINEPREFIX="/home/zadca123/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/zadca123/.wine/dosdevices/c:/ProgramData/Microsoft/Windows/Start\\ Menu/Programs/GOG.com/Gothic/Documents/Manual.lnk &" }
+        Entry = "Orage Calendar" { Actions = "Exec orage &" }
+        Entry = "Orage Globaltime" { Actions = "Exec globaltime &" }
+        Entry = "PostgreSQL Database" { Actions = "Exec st -e psql template1 &" }
+        Entry = "Readme" { Actions = "Exec env WINEPREFIX="/home/zadca123/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/zadca123/.wine/dosdevices/c:/ProgramData/Microsoft/Windows/Start\\ Menu/Programs/GOG.com/Freedom\\ Force\\ vs\\ the\\ 3rd\\ Reich/Documents/Readme.lnk &" }
+        Entry = "Readme" { Actions = "Exec env WINEPREFIX="/home/zadca123/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/zadca123/.wine/dosdevices/c:/ProgramData/Microsoft/Windows/Start\\ Menu/Programs/GOG.com/Gothic/Documents/Readme.lnk &" }
+        Entry = "Zathura" { Actions = "Exec zathura &" }
+        Entry = "ZeGrapher" { Actions = "Exec ZeGrapher &" }
+    }
+    Submenu = "Science" {
+        Entry = "Calc" { Actions = "Exec st -e calc &" }
+        Entry = "Qalculate!" { Actions = "Exec qalculate-gtk &" }
+    }
+    Submenu = "Shells" {
+        Entry = "Alacritty" { Actions = "Exec alacritty &" }
+        Entry = "File Manager PCManFM" { Actions = "Exec pcmanfm &" }
+        Entry = "GIT" { Actions = "Exec st -e git &" }
+        Entry = "kitty" { Actions = "Exec kitty &" }
+        Entry = "lf" { Actions = "Exec st -e lf &" }
+        Entry = "nnn" { Actions = "Exec st -e nnn &" }
+        Entry = "Oracle VM VirtualBox" { Actions = "Exec VirtualBox &" }
+        Entry = "Rdesktop" { Actions = "Exec rdesktop &" }
+        Entry = "ROX" { Actions = "Exec rox &" }
+        Entry = "ST" { Actions = "Exec st &" }
+        Entry = "Termite" { Actions = "Exec termite &" }
+        Entry = "UXTerm" { Actions = "Exec uxterm &" }
+        Entry = "VirtualBox" { Actions = "Exec virtualbox &" }
+        Entry = "Xterm" { Actions = "Exec xterm &" }
+    }
+    Submenu = "System" {
+        Submenu = "Settings" {
+            Submenu = "GNOME" {
+                Entry = "Connman Settings" { Actions = "Exec connman-gtk &" }
+            }
+            Submenu = "Xfce" {
+                Entry = "Orage preferences" { Actions = "Exec orage -p &" }
+                Entry = "Settings Manager" { Actions = "Exec xfce4-settings-manager &" }
+            }
+            Entry = "Accessibility" { Actions = "Exec xfce4-accessibility-settings &" }
+            Entry = "Appearance" { Actions = "Exec xfce4-appearance-settings &" }
+            Entry = "Clipboard Manager Settings" { Actions = "Exec xfce4-clipman-settings &" }
+            Entry = "Color Profiles" { Actions = "Exec xfce4-color-settings &" }
+            Entry = "Customize Look and Feel" { Actions = "Exec lxappearance &" }
+            Entry = "Default Applications" { Actions = "Exec xfce4-mime-settings &" }
+            Entry = "Desktop Preferences" { Actions = "Exec pcmanfm --desktop-pref &" }
+            Entry = "Display" { Actions = "Exec xfce4-display-settings &" }
+            Entry = "Keyboard" { Actions = "Exec xfce4-keyboard-settings &" }
+            Entry = "Manage Printing" { Actions = "Exec xdg-open http://localhost:631/ &" }
+            Entry = "Mouse and Touchpad" { Actions = "Exec xfce4-mouse-settings &" }
+            Entry = "nitrogen" { Actions = "Exec nitrogen &" }
+            Entry = "Notifications" { Actions = "Exec xfce4-notifyd-config &" }
+            Entry = "Panel" { Actions = "Exec xfce4-panel --preferences &" }
+            Entry = "Power Manager" { Actions = "Exec xfce4-power-manager-settings &" }
+            Entry = "Preferred Applications" { Actions = "Exec libfm-pref-apps &" }
+            Entry = "Print Settings" { Actions = "Exec system-config-printer &" }
+            Entry = "Qt5 Settings" { Actions = "Exec qt5ct &" }
+            Entry = "Screensaver" { Actions = "Exec xfce4-screensaver-preferences &" }
+            Entry = "Session and Startup" { Actions = "Exec xfce4-session-settings &" }
+            Entry = "Settings Editor" { Actions = "Exec xfce4-settings-editor &" }
+            Entry = "Tint2 Settings" { Actions = "Exec tint2conf &" }
+            Entry = "Window Manager" { Actions = "Exec xfwm4-settings &" }
+            Entry = "Window Manager Tweaks" { Actions = "Exec xfwm4-tweaks-settings &" }
+            Entry = "Workspaces" { Actions = "Exec xfwm4-workspace-settings &" }
+            Entry = "Xfontsel" { Actions = "Exec xfontsel &" }
+        }
+        Entry = "Android File Transfer (MTP)" { Actions = "Exec android-file-transfer &" }
+        Entry = "Avahi Zeroconf Browser" { Actions = "Exec avahi-discover &" }
+        Entry = "conky" { Actions = "Exec conky --daemonize --pause=1 &" }
+        Entry = "Conky" { Actions = "Exec st -e conky &" }
+        Entry = "GKrellM" { Actions = "Exec gkrellm &" }
+        Entry = "Hardware Locality lstopo" { Actions = "Exec lstopo &" }
+        Entry = "Htop" { Actions = "Exec st -e htop &" }
+        Entry = "Log Out" { Actions = "Exec xfce4-session-logout &" }
+        Entry = "Pstree" { Actions = "Exec st -e pstree.x11 &" }
+        Entry = "pstree" { Actions = "Exec xterm -e /usr/bin/pstree.x11 &" }
+        Entry = "pstree" { Actions = "Exec st -e pstree &" }
+        Entry = "Sensor Viewer" { Actions = "Exec xfce4-sensors &" }
+        Entry = "SnoreNotify" { Actions = "Exec snorenotify &" }
+        Entry = "SnoreSettings" { Actions = "Exec snoresettings &" }
+        Entry = "Task Manager" { Actions = "Exec xfce4-taskmanager &" }
+        Entry = "TeXconfig" { Actions = "Exec st -e texconfig &" }
+        Entry = "Timeshift" { Actions = "Exec timeshift-launcher &" }
+        Entry = "Tint2" { Actions = "Exec tint2 &" }
+        Entry = "Top" { Actions = "Exec st -e top &" }
+        Entry = "WoeUSB" { Actions = "Exec woeusbgui &" }
+        Entry = "Xkill" { Actions = "Exec xkill &" }
+        Entry = "Xrefresh" { Actions = "Exec xrefresh &" }
+    }
+    Submenu = "Utilities" {
+        Entry = "About Xfce" { Actions = "Exec xfce4-about &" }
+        Entry = "Application Finder" { Actions = "Exec xfce4-appfinder &" }
+        Entry = "balenaEtcher" { Actions = "Exec /opt/balenaEtcher/balena-etcher-electron &" }
+        Entry = "Bc" { Actions = "Exec st -e bc &" }
+        Entry = "Clipboard Manager" { Actions = "Exec xfce4-clipman &" }
+        Entry = "Dc" { Actions = "Exec st -e dc &" }
+        Entry = "File Manager" { Actions = "Exec exo-open --launch FileManager &" }
+        Entry = "Info" { Actions = "Exec st -e info &" }
+        Entry = "Notes" { Actions = "Exec xfce4-notes &" }
+        Entry = "Redshift" { Actions = "Exec redshift-gtk &" }
+        Entry = "Run Program..." { Actions = "Exec xfce4-appfinder --collapsed &" }
+        Entry = "Screenshot" { Actions = "Exec xfce4-screenshooter &" }
+        Entry = "Terminal Emulator" { Actions = "Exec exo-open --launch TerminalEmulator &" }
+        Entry = "TeXdoctk" { Actions = "Exec texdoctk &" }
+        Entry = "unclutter - start" { Actions = "Exec unclutter &" }
+        Entry = "Winetricks" { Actions = "Exec winetricks --gui &" }
+        Entry = "Xarchiver" { Actions = "Exec xarchiver &" }
+        Entry = "Xev" { Actions = "Exec st -e xev &" }
+        Entry = "xzoom" { Actions = "Exec xzoom &" }
+    }
+    Separator {}
+    Submenu = "PekWM" {
+        Entry = "Reload" { Actions = "Reload" }
+        Entry = "Restart" { Actions = "Restart" }
+        Separator {}
+        Entry = "Exit" { Actions = "Exit" }
+    }
+}
+
+WindowMenu = "Window Menu" {
+    Entry = "(Un)Stick" { Actions = "Toggle Sticky" }
+    Entry = "(Un)Shade" { Actions = "Toggle Shaded" }
+    Submenu = "Maximize" {
+        Entry = "Full" { Actions = "Toggle Maximized True True" }
+        Entry = "Horizontal" { Actions = "Toggle Maximized True False" }
+        Entry = "Vertical" { Actions = "Toggle Maximized False True" }
+    }
+    Submenu = "Fill" {
+        Entry = "Full" { Actions = "MaxFill True True" }
+        Entry = "Horizontal" { Actions = "MaxFill True False" }
+        Entry = "Vertical" { Actions = "MaxFill False True" }
+    }
+    Submenu = "Stacking" {
+        Entry = "Raise " { Actions = "Raise" }
+        Entry = "Lower" { Actions = "Lower" }
+        Entry = "Always On Top " { Actions = "Toggle AlwaysOnTop" }
+        Entry = "Always Below" { Actions = "Toggle AlwaysBelow" }
+    }
+    Submenu = "Decor" {
+        Entry = "Decor" { Actions = "Toggle DecorBorder; Toggle DecorTitlebar" }
+        Entry = "Border" { Actions = "Toggle DecorBorder" }
+        Entry = "Titlebar" { Actions = "Toggle DecorTitlebar" }
+    }
+    Submenu = "Skip" {
+        Entry = "Menus" { Actions = "Toggle Skip Menus" }
+        Entry = "Focus Toggle" { Actions = "Toggle Skip FocusToggle" }
+        Entry = "Snap" { Actions = "Toggle Skip Snap" }
+    }
+    Entry = "Iconify " { Actions = "Set Iconified" }
+    Entry = "Manual Action" { Actions = "ShowCmdDialog" }
+    Separator {}
+    Entry = "Close" { Actions = "Close" }
+    Entry = "Kill " { Actions = "Kill " }
+}
+

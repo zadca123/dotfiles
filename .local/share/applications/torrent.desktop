@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=BitTorrent Client (transmission, using transmission-add.sh)
+Exec=transmission-add.sh %u

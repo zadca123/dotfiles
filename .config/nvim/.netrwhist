@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/zadca123/Scripts'
+let g:netrw_dirhist_9='/home/zadca123/.local/bin/ffmpeg-scripts'
+let g:netrw_dirhist_8='/home/zadca123/Scripts'
+let g:netrw_dirhist_7='/home/zadca123/.doom.d'
+let g:netrw_dirhist_6='/home/zadca123/Scripts'
+let g:netrw_dirhist_5='/home/zadca123/Downloads'
+let g:netrw_dirhist_4='/mnt/crucial_nvme/Studia_archive/eTrapez'
+let g:netrw_dirhist_3='/mnt/seagate/desktop/Documents/memes'
+let g:netrw_dirhist_2='/mnt/seagate/desktop/Documents/screenshots'
+let g:netrw_dirhist_1='/home/zadca123/.config/dunst'

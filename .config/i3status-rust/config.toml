@@ -1,0 +1,64 @@
+theme = "solarized-dark"
+icons = "awesome"
+
+# ### MUSIC ###
+# [[block]]
+# full_text="echo czesc"
+# interval=once
+# signal=10
+
+### DISK SPACE ###
+[[block]]
+block = "disk_space"
+path = "/home"
+alias = "home"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "disk_space"
+path = "/mnt/seagate"
+alias = "seagate"
+warning = 3.0
+alert = 1.0
+
+[[block]]
+block = "disk_space"
+path = "/mnt/toshiba"
+alias = "toshiba"
+warning = 3.0
+alert = 1.0
+
+[[block]]
+block = "disk_space"
+path = "/mnt/crucial_nvme"
+alias = "crucial"
+warning = 3.0
+alert = 1.0
+
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"

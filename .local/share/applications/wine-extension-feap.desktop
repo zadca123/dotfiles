@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Enterprise Architect - UML Development Tool
+MimeType=application/x-wine-extension-feap;
+Exec=env WINEPREFIX="/home/zadca123/.wine" wine start /ProgIDOpen EA.Document %f
+NoDisplay=true
+StartupNotify=true
+Icon=D9E0_EA.0

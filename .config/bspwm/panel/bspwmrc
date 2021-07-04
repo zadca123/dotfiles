@@ -1,0 +1,8 @@
+#! /bin/sh
+
+pgrep -x panel > /dev/null || panel &
+
+### AUTOSTART ###
+sxhkd &
+nitrogen --restore &
+

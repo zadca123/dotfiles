@@ -1,0 +1,78 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+# Global properties
+separator=true
+separator_block_width=15
+# background=#282828
+# foreground=#ebdbb2
+
+[music]
+command=bar-cmus.sh
+color=#b8bb26 # green:
+interval=10
+
+[volume]
+command=bar-volume.sh
+color=#98971a # green:
+interval=10
+
+[diskspace]
+command=bar-diskspace.sh
+color=#458588 # blue:
+interval=10
+
+[cpu]
+command=bar-cpu.sh
+color=#FE8019
+interval=10
+
+[memory]
+command=bar-memory.sh
+color=#FE8019
+interval=10
+
+[uptime]
+command=bar-uptime.sh
+color=#689d6a # cyan:
+interval=60
+
+[battery]
+command=bar-battery.sh
+color=#689d6a # cyan:
+interval=60
+
+[documentation]
+full_text=X
+website=https://vivien.github.io/i3blocks
+command=xdg-open "$website"
+color=#f12711
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
+[colors-database]
+# # Colors (Gruvbox dark)
+#   # Normal colors
+#     color=#282828 # black:
+#     color=#cc241d # red:
+#     color=#98971a # green:
+#     color=#d79921 # yellow:
+#     color=#458588 # blue:
+#     color=#b16286 # magenta:
+#     color=#689d6a # cyan:
+#     color=#a89984 # white:
+#   # Bright colors
+#     color=#928374 # black:
+#     color=#fb4934 # red:
+#     color=#b8bb26 # green:
+#     color=#fabd2f # yellow:
+#     color=#83a598 # blue:
+#     color=#d3869b # magenta:
+#     color=#8ec07c # cyan:
+#     color=#ebdbb2 # white:

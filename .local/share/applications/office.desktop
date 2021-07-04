@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Office file opener
+Exec=/usr/bin/libreoffice --view %U
+#Exec=/usr/bin/onlyoffice-desktopeditors --view='%U'
