@@ -1,4 +1,2 @@
 # +TITLE: Dotfiles
 * Dotfiles
-# +TITLE: Dotfiles
-* Dotfiles

@@ -4,7 +4,8 @@ duration=20
 img=/tmp/cover.png
 
 display_cover(){
-    kitty +kitten icat "$img" || chafa "$img"
+    # kitty +kitten icat "$img" || chafa "$img"
+    chafa "$img"
     # [[ "$(cat /proc/$PPID/comm)" == 'kitty' ]] && kitty +kitten icat "$img"
 }
 
