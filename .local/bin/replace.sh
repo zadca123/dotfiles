@@ -1,19 +1,18 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 display_help(){
     echo "Usage: ${0##*/} [line-number-to-delete] [new-text-to-put-there] [file/s]"
-    exit 1
+    exit 2
 }
 
 [[ $# -lt 3 ]] && display_help
 
-index="$1"
-new_line="$2"
-for i in "${@:2}"; do
-    # sed "${index} c${new_line}" "$i" &>/dev/null #it's cat's output of file
-    # sed -i "${index}s/.*/${new_line}/" "$i" 2>/dev/null || echo fail?
-    # sed -i "${index}s/.*/${new_line}/" "$i"
-    sed "${index} c${new_line}" "$i"
+line_index="$1"
+new_value="$2"
+shift 2
+for i in "$@"; do
+    # sed -i "${line_index}s/.*/${new_value}/" $i
+    sed "${line_index} c${new_value}" "$i"
 done
 
 ##Create temporary file with new line in place

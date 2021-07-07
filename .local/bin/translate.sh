@@ -1,18 +1,11 @@
 #!/bin/bash
 
-# tmux new-window
-# trans -tl pl -hl pl "$*"
-# tmux split-window -h
-# tuxi "$@"
+display_help(){
+    echo usage: [ru,pl,en,jp] [something to translate]
+    exit 2
+}
 
-case "$1" in
-    pl | ru | de | en)
-        trans -tl "$1" -hl "$1" "${*:2}"
-        tuxi "${*:2}"
-        ;;
-    *)
+[[ $# -lt 2 ]] && display_help
 
-        trans -tl pl -hl pl "$*"
-        tuxi "$@"
-        ;;
-esac
+trans -tl "$1" -hl "$1" "${*:2}"
+[[ -f /bin/tuxi ]] && tuxi "${*:2}"

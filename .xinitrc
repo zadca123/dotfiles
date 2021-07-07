@@ -21,5 +21,5 @@ exec i3
 # exec qtile
 # exec icewm-session
 # exec cinnamon-session
-# exec mate-session
+# # exec mate-session
 # exec xfce4-session

@@ -12,7 +12,7 @@ case "$1" in
         mkdir -p "$gdir"
         git init --bare "$gdir"
         $gitdots config --local status.showUntrackedFiles no
-        echo "# +TITLE: Dotfiles" >> "$HOME/README.org"
+        echo -e "# +TITLE: Dotfiles\\n* Dotfiles" > "$HOME/README.org"
         $gitdots add README.org
         $gitdots commit -m 'first commit'
         $gitdots branch -M "$br"
@@ -29,8 +29,9 @@ case "$1" in
         $gitdots add \
             ~/.icons \
             ~/.config/{nvim,mpv,transmission-daemon,cmus,*wm,i3*,qtile,awesome,alacritty,picom,neofetch,zathura,mimeapps.list,compton.conf} \
-            ~/.*{Xresources,wm,rc,conf,_profile,env,password*} \
-            ~/.local/{bin,share/applications/[a-z]*.desktop}
+            ~/.*{doom.d,Xresources,wm,rc,conf,_profile,env,password*} \
+            ~/.local/{bin,share/applications/[a-z]*.desktop} \
+            ~/Documents/{files,notes}
         # list=$(find "$HOME" -mount -type f \( -iname "*cache*" -o -iname "*hist*"\))
         # $gitdots rm -r --cached \
         ;;

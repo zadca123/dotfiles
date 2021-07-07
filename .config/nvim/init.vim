@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'mcchrish/nnn.vim'
+
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-commentary'
@@ -9,20 +9,18 @@ Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-renamer'
 Plug 'morhetz/gruvbox'
-Plug 'phanviet/vim-monokai-pro'
+" Plug 'phanviet/vim-monokai-pro'
 Plug 'arcticicestudio/nord-vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
 Plug 'dense-analysis/ale'
-Plug 'axvr/org.vim'
+" Plug 'axvr/org.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'Chiel92/vim-autoformat' " >>python3 -m pip install pynvim
-" Plug 'davidhalter/jedi-vim'
-" Plug 'chxuan/cpp-mode'
+" Plug 'Chiel92/vim-autoformat' " >>python3 -m pip install pynvim
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
-Plug 'zgpio/tree.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 set number
@@ -47,6 +45,8 @@ hi Normal guibg=NONE ctermbg=NONE
 
 map <C-n> :NERDTreeToggle<CR>
 map <Space>. :NERDTreeToggle<CR>
+" :CocInstall coc-explorer
+:nnoremap <space>e :CocCommand explorer<CR>
 " Plug 'junegunn/fzf.vim'
 nnoremap <Space>fr :History<CR>
 nnoremap ff :FZF<CR>
