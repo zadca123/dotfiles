@@ -1,81 +1,79 @@
-#!/bin/sh
-# [ "$#" -eq 1 ] && x=$(pwd) || x="$1"
+#!/usr/bin/env bash
+
+display_help(){
+    	echo Usage: "$0" '[type] [start-location]'
+    	echo Types: '[memes, video, audio, ebook, image, code, document]'
+        exit 2
+}
+
+[[ $# -lt 1 ]] && display_help
+[[ -d "$1" ]] && PWD="$1"
+shift
 
 # find /some/dir -maxdepth 1 \( -name '*.c' -o -name '*.h' \) -print
-if [ "$#" -eq 1 ];then
-    x="$(pwd)"
-else
-    x="$2"
-fi
-
+fd="find $PWD -mount -type f"
 case $1 in
     memes)
-    	# find "$1" -mount -type f | grep --color ".mkv\|.mp4\|.avi"
-    	find "$x" -mount -type f \
-    		-name "*.jpeg" -or \
-    		-name "*.jpg" -or \
-    		-name "*.png" -or \
-    		-name "*.gif" -or \
+    	$fd \
+    		-name "*.jpeg" -o \
+    		-name "*.jpg" -o \
+    		-name "*.png" -o \
+    		-name "*.gif" -o \
     		-name "*.webm"
     	;;
     video)
-    	# find "$1" -mount -type f | grep --color ".mkv\|.mp4\|.avi"
-    	find "$x" -mount -type f \
-    		-name "*.mkv" -or \
-    		-name "*.mp4" -or \
-    		-name "*.avi" -or \
+    	$fd \
+    		-name "*.mkv" -o \
+    		-name "*.mp4" -o \
+    		-name "*.avi" -o \
     		-name "*.webm"
     	;;
     audio)
-    	# find "$1" -mount -type f | grep --color ".flac\|.mp3\|.ogg\|.opus\|.wav"
-    	find "$x" -mount -type f \
-    		-name "*.flac" -or \
-    		-name "*.opus" -or \
-    		-name "*.mp3" -or \
-    		-name "*.m4a" -or \
-    		-name "*.ogg" -or \
+    	$fd \
+    		-name "*.flac" -o \
+    		-name "*.opus" -o \
+    		-name "*.mp3" -o \
+    		-name "*.m4a" -o \
+    		-name "*.ogg" -o \
     		-name "*.wav"
     	;;
     ebook)
-    	# find "$!" -mount -type f | grep --color ".mobi\|.epub\|.azw3\|.pdf"
-    	find "$x" -mount -type f \
-    		-name "*.mobi" -or \
-    		-name "*.epub" -or \
-    		-name "*.azw3" -or \
-    		-name "*.rtf" -or \
+    	$fd \
+    		-name "*.mobi" -o \
+    		-name "*.epub" -o \
+    		-name "*.azw3" -o \
+    		-name "*.rtf" -o \
     		-name "*.pdf"
     	;;
     image)
-    	find "$x" -mount -type f \
-    		-name "*.jpeg" -or \
-    		-name "*.jpg" -or \
-    		-name "*.png" -or \
-    		-name "*.gif" -or \
+    	$fd \
+    		-name "*.jpeg" -o \
+    		-name "*.jpg" -o \
+    		-name "*.png" -o \
+    		-name "*.gif" -o \
     		-name "*.svg"
     	;;
     code)
-    	find "$x" -mount -type f \
-    		-name "*.java" -or \
-    		-name "*.json" -or \
-    		-name "*.html" -or \
-    		-name "*.cpp" -or \
-    		-name "*.py" -or \
-    		-name "*.pl" -or \
-    		-name "*.sh" -or \
+    	$fd \
+    		-name "*.java" -o \
+    		-name "*.json" -o \
+    		-name "*.html" -o \
+    		-name "*.cpp" -o \
+    		-name "*.py" -o \
+    		-name "*.pl" -o \
+    		-name "*.sh" -o \
     		-name "*.c"
     	;;
     document)
-    	find "$x" -mount -type f \
-    		-name "*.docx" -or \
-    		-name "*.xmlx" -or \
-    		-name "*.doc" -or \
-    		-name "*.xml" -or \
-    		-name "*.rtf" -or \
-    		-name "*.od*" -or \
+    	$fd \
+    		-name "*.docx" -o \
+    		-name "*.xmlx" -o \
+    		-name "*.doc" -o \
+    		-name "*.xml" -o \
+    		-name "*.rtf" -o \
+    		-name "*.od*" -o \
     		-name "*.txt"
     	;;
-    *)
-    	echo Usage: "$0" '[type] [start-location]'
-    	echo Types: '[memes, video, audio, ebook, image, code, document]'
+    *)display_help
     	;;
 esac;

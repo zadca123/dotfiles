@@ -18,8 +18,9 @@ export VIDEO="mpv"
 export PAGER="less"
 export FILE_MANAGER="rox"
 
+export nnn_sel=${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection}
 export NNN_TRASH=1
-export NNN_PLUG='i:imgthumb;m:mocplay;t:preview-tui;T:preview-tabbed;n:nuke;d:dragdrop'
+export NNN_PLUG='i:imgthumb;m:mocplay;t:preview-tui;T:preview-tabbed;n:nuke;d:dragdrop;l:launch'
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_OPENER='xdg-open'
 export NNN_BMS="d:~/Documents;D:~/Downloads;h:$HOME;t:~/Torrents;m:~/mnt/elements/multimedia;c:$XDG_CONFIG_HOME;s:$SCRIPTS;M:/mnt/;S:$HOME/Studia/semestr_4/;f:~/Movies;v:~/Videos;g:~/Games;h:~/;p:~/Pictures"

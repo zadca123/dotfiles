@@ -41,24 +41,26 @@ for i in "${@:2}"; do
         -d=* | --downscale=*)
             # read -rp "downscale times? (1.5, 2, 3, 4....): " DSC
             # # x=1
-            DSC="${1//*\-}"
+            DSC="${1//*\=}"
             while true;do
     	        ffmpeg -i "$i" -vf scale="iw/$DSC:ih/$DSC" \
                     "$output"
     
                 # [[ "$?" -ne 0 ]] || break
-                (( ? != 0 )) || break
+                (( $? != 0 )) || break
                 # DSC=$(bc<<<"$DSC+$x")
                 # (( x+=1 ))
                 (( DSC += 1))
             done
             ;;
 		-bv=* | --bitrate-video=*)
-			ffmpeg -i "$i" -c copy -b:v "${1//*\-}" -y "$output"
+            bitrate="${1//*\=}"
+			ffmpeg -i "$i" -c copy -b:v "$bitrate" -y "$output"
 			# ffmpeg -i "$x" -c copy -map 0:a -map 0:v -b "${1//*\-}" "$output"
             ;;
 		-ba=* | --bitrate-audio=*)
-			ffmpeg -i "$i" -c copy -b:a "${1//*\-}" -y "$output"
+            bitrate="${1//*\=}"
+			ffmpeg -i "$i" -c copy -b:a "$bitrate" -y "$output"
 			# ffmpeg -i "$x" -c copy -map 0:a -map 0:v -b "${1//*\-}" "$output"
             ;;
         *)

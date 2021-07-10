@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/usr/bin/env zsh
 
 # # if [ "$#" -eq 1 ];then
 # #     x="$(pwd)"
@@ -51,7 +50,5 @@
 # LANG='master'
 # read -rp "wpisz cos: " x
 # echo $x
-
-# IFS=$'\n'
-x=git
-$x status
+[[ -d "$*" ]] && echo all fonders && exit
+echo not all folders

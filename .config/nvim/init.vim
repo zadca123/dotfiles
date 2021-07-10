@@ -25,8 +25,7 @@ call plug#end()
 
 set number
 set clipboard+=unnamedplus
-" set ic
-set ignorecase
+set ignorecase "set ic
 set nowrap
 set mouse=a
 set hidden
@@ -39,9 +38,8 @@ set expandtab
 syntax on
 syntax enable
 filetype plugin indent on
-colorscheme gruvbox
-" opacity with colorsheme
-hi Normal guibg=NONE ctermbg=NONE
+colorscheme gruvbox  " opacity with colorsheme
+hi Normal guibg=NONE ctermbg=NONE 
 
 map <C-n> :NERDTreeToggle<CR>
 map <Space>. :NERDTreeToggle<CR>

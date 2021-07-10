@@ -2,6 +2,7 @@
 
 if [ $# -eq 4 ];then
 	find "$1" -type f -name "*.$2" -exec "$3" "{}" "$4" \;
+	# find "$1" -type f -name "*.$2" -exec sh -c "${@:3}" \;
 elif [ $# -eq 3 ];then
 	find "$1" -type f -name "*.$2" -exec "$3" "{}" \;
 else

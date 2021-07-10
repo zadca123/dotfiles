@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # shift
-name="$(date +'%Y%m%d')"
+# name="$(date +'%Y%m%d')"
 case "$1" in
     *.7z)
         7z a -t7z -m0=lzma2 -mx=9 -aoa -mfb=64 -md=32m -ms=on "$1" "${@:2}"
