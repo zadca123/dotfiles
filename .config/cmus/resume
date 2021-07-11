@@ -1,7 +1,7 @@
-status playing
-file /mnt/elements/multimedia/music/Ambient Music/Dark ambient/AIN SOPH - [1986] - Ars regia (lim.)/[05] gradalis.mp3
-position 77
-lib_file /mnt/elements/multimedia/music/Ambient Music/Dark ambient/AIN SOPH - [1986] - Ars regia (lim.)/[05] gradalis.mp3
+status paused
+file /mnt/elements/multimedia/music/Games OST/Ar Tonelico Music Collection [FLAC]/Ar Tonelico 1 Kara＊Cola ～Hymmnos Orgel Collection～/04. EXEC_PAJA-.#Misya extracting.flac
+position 195
+lib_file /mnt/elements/multimedia/music/Games OST/Ar Tonelico Music Collection [FLAC]/Ar Tonelico 1 Kara＊Cola ～Hymmnos Orgel Collection～/04. EXEC_PAJA-.#Misya extracting.flac
 view tree
 browser-dir /home/zadca123/.config/cmus
 marked-pl default

@@ -21,3 +21,17 @@ display_help
 #      :)  display_help ;;
 #   esac
 # done
+
+[[ -d "$1" ]] && PWD="$1"
+fd="find $PWD -mount"
+case "$2" in
+   empty) $fd -empty -delete;;
+   # corrupt) find "$PWD" -iname '*.mp3' | while read f; do  echo "mplayer -frames 20 ${f} || echo ${f} >> ~/bad.lst" >> check.sh ; done
+       # ;;
+   part) $fd -type f -name '*.part' -delete;;
+   s) exit;;
+   o) exit;;
+   h)  display_help ;;
+   \?) display_help ;;
+   :)  display_help ;;
+esac

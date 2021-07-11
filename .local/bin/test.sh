@@ -50,5 +50,5 @@
 # LANG='master'
 # read -rp "wpisz cos: " x
 # echo $x
-[[ -d "$*" ]] && echo all fonders && exit
-echo not all folders
+# [[ -d "$*" ]] && echo all fonders && exit
+echo "$@"

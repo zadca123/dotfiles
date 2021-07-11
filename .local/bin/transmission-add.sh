@@ -3,6 +3,7 @@
 transmission-init.sh
 
 [ "$#" -eq 1 ] && \
+    transmission-remote --add "$*"
     transmission-remote --no-start-paused --add "$*" && \
     notify-send "Transmission-daemon" "Torrent added (started)." && \
     exit                                                        
