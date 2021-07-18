@@ -12,6 +12,7 @@ new_value="$2"
 shift 2
 for i in "$@"; do
     # sed -i "${line_index}s/.*/${new_value}/" $i
+    # sed -r "${line_index}s/.*/${new_value}/" $i
     sed "${line_index} c${new_value}" "$i"
 done
 

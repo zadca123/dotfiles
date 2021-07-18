@@ -1,45 +1,40 @@
-#!/bin/sh
+#!/bin/bash
 
-for x in "$@"; do
-	aunpack "$x"
+#dependencies: atool
+for arc in "$@"; do
+	aunpack "$arc"
 done
 
-
-# notify=$(notify-send "Unarchiving Done")
 # fail() {
-#   notify-send -u low -i image "Archiving failed."
-#   exit
+# 	echo "Archiving failed."
+# 	notify-send -u normal "Archiving failed."
+# 	exit 2
 # }
-# # file="$@"
-# unarchive(){
-# 	case $2 in
-# 	zst)
-# 		unzstd "$1"
-# 		# zstd -d "$1"
-# 		# tar -I zstd -xvf archive.tar.zst
-# 	# zip)
-# 	# 	zip -r9 "$1".zip "$1" || fail
-# 	# 	$notify
-# 	# 	;;
-# 	# 7z)
-# 	# 	7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "$1".7z "$1" || fail # ultra
-# 	# 	# 7z a -mx=9 "$1".7z "$1" || fail # normal
-# 	# 	$notify
-# 	# 	;;
-# 	# tar)
-# 	# 	tar cvf "$1".tar "$1" || fail
-# 	# 	$notify
-# 	# 	;;
-# 	# tar.gz)
-# 	# 	tar cvzf "$1".tar.gz "$1" || fail
-# 	# 	$notify
-# 	# 	;;
-# 	# tar.bz2)
-# 	# 	tar cjvf "$1".tar.bz2 "$1" || fail
-# 	# 	$notify
-# 	# 	;;
-# 	*)
-# 		;;
-# 	esac;
+# display_help(){
+# 	echo "Usage: ${0##*/} [archive/s]"
+# 	exit 2
 # }
-# archive "$1" "$2"
+# [[ $# -lt 1 ]] && display_help
+
+# for arc in "$@";do
+# 	ext=${arc%.*}
+# 	case $ext in
+# 		# zip)
+# 		# 	zip -r9 "$arc".zip "$arc" || fail
+# 		# 	$notify
+# 		# 	;;
+# 		# 7z)
+# 		# 	7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "$arc".7z "$1" || fail # ultra
+# 		# 	# 7z a -mx=9 "$arc".7z "$1" || fail # normal
+# 		# 	$notify
+# 		# 	;;
+# 		tar)tar -xvf "$arc";;
+# 		gz) tar -I gzip -xvf "$arc";;
+# 		bz2)tar -I bzip2 -xvf "$arc";;
+# 		lzma)tar -I lzma -xvf "$arc";;
+# 		xz)tar -I xz -xvf "$arc";;
+# 		zst)tar -I zstd -xvf "$arc";; # unzstd "$arc" or # zstd -d "$arc"
+# 		lz) tar -I lz -xvf "$arc";;
+# 		*)display_help;;
+# 	esac
+# done

@@ -4,7 +4,7 @@ br='master'
 gdir="$HOME/Dotfiles"
 gitdots="git --git-dir=$gdir --work-tree=$HOME"
 display_help(){
-    echo "Usage: ${0##*/} -[n|u|b|g|d|df]"
+    echo "Usage: ${0##*/} -[n|u|b|g|rm|rmf]"
     exit 2
 }
 case "$1" in
@@ -35,16 +35,14 @@ case "$1" in
         # list=$(find "$HOME" -mount -type f \( -iname "*cache*" -o -iname "*hist*"\))
         # $gitdots rm -r --cached \
         ;;
-
     -g | --get)
         git clone "https://github.com/zadca123/Dotfiles.git" || \
             cd "$gdir" && $gitdots fetch;;
-
-    -d | --delete)
+    -rm | --remove)
         shift 1
         $gitdots rm -r --cached "$@";;
 
-    -df | --delete-force)
+    -rmf | --remove-force)
         shift 1
         $gitdots rm -rf --cached "$@";;
 

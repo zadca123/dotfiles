@@ -1,53 +1,63 @@
 #!/bin/bash
 
-# shift
 # name="$(date +'%Y%m%d')"
-case "$1" in
+fail() {
+    echo "Archiving failed."
+    notify-send -u normal "Archiving failed."
+    exit 2
+}
+display_help(){
+    echo Usage: "$0" '[archive-name.tar(,.gz,.bz2,.xz,.zst,.lzma,.lz)] [file/s]'
+    echo Usage: "$0" '[list, unarchive] [file/s]'
+    exit 2
+}
+[[ $# -lt 2 ]] && display_help
+
+ext="$1"
+shift 1
+case "$ext" in
     *.7z)
-        7z a -t7z -m0=lzma2 -mx=9 -aoa -mfb=64 -md=32m -ms=on "$1" "${@:2}"
+        7z a -t7z -m0=lzma2 -mx=9 -aoa -mfb=64 -md=32m -ms=on "$ext" "$@" || fail
         ;;
     *.zip)
-        zip -r9 "$1" "${@:2}"
-        # zip -r9 "$1" shift "$@"
+        zip -r9 "$ext" "$@" || fail
+        # zip -r9 "$ext" shift "$@" || fail
         ;;
     *.tar)
-        tar -cZvf "$1" "${@:2}"
+        tar -cZvf "$ext" "$@" || fail
         ;;
     *.tar.gz) # gzip
-        tar -c -I pigz -vf "$1" "${@:2}" # parallel gzip
-        # tar -czvf "$1" "${@:2}"
-        # tar cvf - "${@:2}" | gzip -9 - > "$1"
+        tar -c -I pigz -vf "$ext" "$@" || fail # parallel gzip
+        # tar -czvf "$ext" "$@" || fail
+        # tar cvf - "$@" | gzip -9 - > "$ext"
         ;;
     *.tar.bz2) # bzip2
-        tar -c -I pbzip2 -vf "$1" "${@:2}" # parallel bzip
-        # tar -cjvf "$1" "${@:2}"
+        tar -c -I pbzip2 -vf "$ext" "$@" || fail # parallel bzip
+        # tar -cjvf "$ext" "$@" || fail
         ;;
     *.tar.lzma)
-        tar -c -I 'xz --format=lzma' -vf "$1" "${@:2}"
-        # tar -c -I lzma -vf "$1" "${@:2}"
+        tar -c -I 'xz --format=lzma' -vf "$ext" "$@" || fail
+        # tar -c -I lzma -vf "$ext" "$@" || fail
         ;;
     *.tar.xz) #xz is like never lzma
-        tar -c -I 'pxz -9' -vf "$1" "${@:2}" # parallel xz
-        # tar -cJvf -9e "$1" "${@:2}"
-        # tar -cf - "${@:2}" | xz -9 -c - > "$1" # idk what is this
+        tar -c -I 'pxz -9' -vf "$ext" "$@" || fail # parallel xz
+        # tar -cJvf -9e "$ext" "$@" || fail
+        # tar -cf - "$@" | xz -9 -c - > "$ext" # idk what is this
         ;;
     *.tar.zst)
-        tar -c -I 'zstd --ultra -22 -T0' -vf "$1" "${@:2}" #parallel zstd
-        # tar -c -I 'zstd -19 -T0' -vf "$1" "${@:2}" #parallel zstd
-        # tar -I zstd -cvf "$1" "${@:2}"
+        tar -c -I 'zstd --ultra -22 -T0' -vf "$ext" "$@" || fail #parallel zstd
+        # tar -c -I 'zstd -19 -T0' -vf "$ext" "$@" || fail #parallel zstd
+        # tar -I zstd -cvf "$ext" "$@" || fail
         ;;
     *.tar.lz)
-        tar -c -I 'plzip -9' -vf "$1" "${@:2}" #parallel lzip
-        # tar -c --lzip -vf "$1" "${@:2}"
+        tar -c -I 'plzip -9' -vf "$ext" "$@" || fail #parallel lzip
+        # tar -c --lzip -vf "$ext" "$@" || fail
         ;;
     list)
-        tar -tvf "${@:2}"
+        tar -tvf "$@" || fail
         ;;
     unarchive)
-        tar -xvf "${@:2}"
+        tar -xvf "$@" || fail
         ;;
-    *)
-        echo Usage: "$0" '[archive-name.tar(,.gz,.bz2,.xz,.zst,.lzma,.lz)] [file/s]'
-        echo Usage: "$0" '[list, unarchive] [file/s]'
-        ;;
+    *) display_help;;
 esac

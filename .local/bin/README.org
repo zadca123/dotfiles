@@ -1,4 +1,2 @@
-# +TITLE: scripts
-* Scripts
 # +TITLE: Scripts
 * Scripts

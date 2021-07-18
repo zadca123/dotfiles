@@ -1,54 +1,50 @@
 #!/bin/bash
 
-# # if [ "$#" -eq 1 ];then
-# #     x="$(pwd)"
-# # else
-# #     # $2="$x"
-# #     set -- second $x
-# #     echo $2
-# # fi
+#SCRIPT=`basename ${BASH_SOURCE[0]}`
 
-# # while ! [ "$*" == "" ];do
-# #     echo "$1"
-# #     shift
-# # done
-# # while ! [ "$@" == "" ];do
-# #     echo "$1"
-# #     shift
-# # done
+### Let's do some admin work to find out the variables to be used here
+#BOLD='\e[1;31m'         # Bold Red
+#REV='\e[1;32m'       # Bold Green
 
-# # x=2
-# # while :;do
-# #     echo $x
-# #     bc<<<"$x+1"
-# # done
+##Help function
+#function HELP {
+#  echo -e "${REV}Basic usage:${OFF} ${BOLD}$SCRIPT -d helloworld ${OFF}"\\n
+#  echo -e "${REV}The following switches are recognized. $OFF "
+#  echo -e "${REV}-p ${OFF}  --Sets the environment to use for installing python ${OFF}. Default is ${BOLD} /usr/bin ${OFF}"
+#  echo -e "${REV}-d ${OFF}  --Sets the directory whose virtualenv is to be setup. Default is ${BOLD} local folder (.) ${OFF}"
+#  echo -e "${REV}-v ${OFF}  --Sets the python version that you want to install. Default is ${BOLD} 2.7 ${OFF}"
+#  echo -e "${REV}-h${OFF}  --Displays this help message. No further functions are performed."\\n
+#  echo -e "Example: ${BOLD}$SCRIPT -d helloworld -p /opt/py27env/bin -v 2.7 ${OFF}"\\n
+#  exit 1
+#}
 
-# while true;do
-#     echo $x
-#     [[ "$x" == "" ]] || break
-# done
+#PYENV='/usr/bin'
+#DIR='.'
+#VERSION='2.7'
 
-# # while
-# #     echo 1
-# # do [ "$?" -ne 0 ];done
-# IFS=$'\n'
-# x=$(find ./ -type d -name 'Downloads' -o -name 'Documents')
-# x=$(find ./ -type d -name 'Downloads')
-# # y='-l'
-# # echo ${x} $y
-# "${x} -o -name 'Documents'"
-# arr=$('ls' 'neofetch' 'cmatrix')
-# arr=('ls' 'neofetch' 'cmatrix')
-# # echo "${arr[@]:1}"
-# "${arr[0]}" -l
-# ${arr[1]}
+## In case you wanted to check what variables were passed
+## echo "flags = $*"
 
-# echo "$1 $2 $3 $4 $5 $6"
-# shift 3
-# echo "$1 $2 $3 $4 $5 $6"
+#while getopts p:d:v:h opt; do
+#  case $opt in
+#    d)
+#      DIR=$OPTARG
+#      ;;
+#    p)
+#      PYENV=$OPTARG
+#      ;;
+#    v)
+#      VERSION=$OPTARG
+#      ;;
+#    h)
+#      HELP
+#      ;;
+#    \?) #unrecognized option - show help
+#      echo -e \\n"Option -${BOLD}$OPTARG${OFF} not allowed."
+#      HELP
+#      ;;
+#  esac
+#done
 
-# LANG='master'
-# read -rp "wpisz cos: " x
-# echo $x
-# [[ -d "$*" ]] && echo all fonders && exit
-echo "$@"
+quality="bestvideo[height<=XYZ]+bestaudio/best[height<=XYZ]" 
+[[ $quality == ".*XYZ.*" ]] && echo kaczka

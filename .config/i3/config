@@ -2,6 +2,7 @@
 exec --no-startup-id nitrogen --set-zoom-fill --random
 exec --no-startup-id transmission-init.sh
 exec --no-startup-id tmux-session.sh
+exec --no-startup-id downloader.sh
 # exec --no-startup-id audacious -p
 # exec --no-startup-id polybar.sh
 

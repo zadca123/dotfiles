@@ -7,8 +7,7 @@ case $1 in
 install)
 	virt-install --connect qemu:///session --memory 4096 --vcpus 4 \
 		--os-variant detect=on,name=win2k19 --network bridge=eth0 \
-		--disk size="$2" --name "$3" --cdrom "$4" 
-	;;
+		--disk size="$2" --name "$3" --cdrom "$4";;
 import)
 	virt-install --import --memory 2048 \
 		--os-variant detect=on,name=win2k19 \
@@ -21,12 +20,12 @@ convert)
 	sudo qemu-img convert -f vdi -O qcow2 "$2" "${2//.vdi}.qcow2"
 	;;
 *)
-	echo Usage: "$0" install [size-for-vm] [name-of-vm] [iso]
-	echo Usage: "$0" import  [name] [path/to/image.qcow2] 
-	echo Usage: "$0" launch  [name-of-vm]
-	echo Usage: "$0" convert [path/to/image.vdi]
+	echo "Usage: $0 install [size-for-vm] [name-of-vm] [iso]"
+	echo "Usage: $0 import  [name] [path/to/image.qcow2]"
+	echo "Usage: $0 launch  [name-of-vm]"
+	echo "Usage: $0 convert [path/to/image.vdi]"
 	;;
-esac;
+esac
 
 # TODO
 # qemu libvirt bridge-utils virt-manager virt-viewer

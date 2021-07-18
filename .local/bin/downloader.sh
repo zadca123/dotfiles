@@ -1,14 +1,20 @@
 #!/bin/bash
 
+# Automatifally downloads files in clipboard
+
 display_help(){
     notify-send 'Idk what is happening here...'
     # exit 2
 }
-dir1="$HOME/Documents/memes"
-dir2="$HOME/Downloads"
-[[ -d $dir1 && -d $dir2 ]] || mkdir "$dir1" "$dir2"
 
-new=$(xclip -o)
+# It's preventing of multiple instances of script
+[[ $(pgrep -c "${0##*/}") -gt 1 ]] && \
+    echo Script already running... && exit 2
+
+download="aria2c --allow-overwrite -d"
+# download="wget -c --adjust-extension"
+
+# new=$(xclip -o)
 while :; do
     new=$(xclip -o)
     if [ "$new" == "$old" ]; then
@@ -16,17 +22,30 @@ while :; do
         sleep 5
     else
         case "$new" in
-            *.png | *.jpg | *.jpeg | *.gif | *.webm | .mp4)
-                notify-send "Saving as ~/Documents/memes/${new//*\/}"
-                aria2c --allow-overwrite -d "$dir1" "$new"
-                ;;
-            *.pdf | *.zip | *.7z | *.tar* | *.rar)
-                notify-send "Saving as ~/Downloads/${new//*\/}"
-                aria2c --allow-overwrite -d "$dir2" "$new"
-                ;;
+            # save 4chan memes
+            *.4cdn.org*[0-9].*)
+            dir="$HOME/Documents/memes"; mkdir -p "$dir"
+            notify_text="${dir##*$USER/}/${new##*/}"
+            notify-send "Saving as $notify_text"
 
-            *) display_help;;
-        esac
-        old=$new
+            $download "$dir" "$new"
+            ;;
+        *.png | *.jpg | *.jpeg | *.gif | *.webm | .mp4)
+            dir="$HOME/Downloads/pics_and_vids"; mkdir -p "$dir"
+            notify_text="${dir##*$USER/}/${new##*/}"
+            notify-send "Saving as $notify_text"
+
+            $download "$dir" "$new"
+            ;;
+        *.pdf | *.zip | *.7z | *.tar* | *.rar)
+            dir="$HOME/Downloads"; mkdir -p "$dir"
+            notify_text="${dir##*$USER/}/${new##*/}"
+            notify-send "Saving as $notify_text"
+
+            $download "$dir" "$new"
+            ;;
+        *) display_help;;
+    esac
+    old=$new
     fi
 done

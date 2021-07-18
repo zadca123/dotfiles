@@ -85,8 +85,3 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-
-bindkey -s '^b' 'br\n' # broot
-source /home/zadca123/.config/broot/launcher/bash/br
-
-# eval "$(starship init zsh)"
