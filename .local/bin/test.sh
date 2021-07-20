@@ -44,7 +44,3 @@
 #      HELP
 #      ;;
 #  esac
-#done
-
-quality="bestvideo[height<=XYZ]+bestaudio/best[height<=XYZ]" 
-[[ $quality == ".*XYZ.*" ]] && echo kaczka

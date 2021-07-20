@@ -1,79 +1,40 @@
 #!/usr/bin/env bash
 
 display_help(){
-    	echo Usage: "$0" '[type] [start-location]'
-    	echo Types: '[memes, video, audio, ebook, image, code, document]'
-        exit 2
+    echo "Usage: $0 -[m|v|a|e|i|c|d|h]"
+    echo "Types:"
+    echo "-m  --Finds all memes files"
+    echo "-v  --Finds all video files"
+    echo "-a  --Finds all audio files"
+    echo "-e  --Finds all ebook files"
+    echo "-i  --Finds all image files"
+    echo "-c  --Finds all code files"
+    echo "-d  --Finds all document files"
+    echo "-h  --Shows this message"
+    exit 2
 }
 
 [[ $# -lt 1 ]] && display_help
-[[ -d "$1" ]] && PWD="$1"
-shift
+
+if [ -d "$1" ]; then
+    PWD="$1" 
+    shift
+else
+    PWD=$(pwd -P)
+fi
 
 # find /some/dir -maxdepth 1 \( -name '*.c' -o -name '*.h' \) -print
-fd="find $PWD -mount -type f"
-case $1 in
-    memes)
-    	$fd \
-    		-name "*.jpeg" -o \
-    		-name "*.jpg" -o \
-    		-name "*.png" -o \
-    		-name "*.gif" -o \
-    		-name "*.webm"
-    	;;
-    video)
-    	$fd \
-    		-name "*.mkv" -o \
-    		-name "*.mp4" -o \
-    		-name "*.avi" -o \
-    		-name "*.webm"
-    	;;
-    audio)
-    	$fd \
-    		-name "*.flac" -o \
-    		-name "*.opus" -o \
-    		-name "*.mp3" -o \
-    		-name "*.m4a" -o \
-    		-name "*.ogg" -o \
-    		-name "*.wav"
-    	;;
-    ebook)
-    	$fd \
-    		-name "*.mobi" -o \
-    		-name "*.epub" -o \
-    		-name "*.azw3" -o \
-    		-name "*.rtf" -o \
-    		-name "*.pdf"
-    	;;
-    image)
-    	$fd \
-    		-name "*.jpeg" -o \
-    		-name "*.jpg" -o \
-    		-name "*.png" -o \
-    		-name "*.gif" -o \
-    		-name "*.svg"
-    	;;
-    code)
-    	$fd \
-    		-name "*.java" -o \
-    		-name "*.json" -o \
-    		-name "*.html" -o \
-    		-name "*.cpp" -o \
-    		-name "*.py" -o \
-    		-name "*.pl" -o \
-    		-name "*.sh" -o \
-    		-name "*.c"
-    	;;
-    document)
-    	$fd \
-    		-name "*.docx" -o \
-    		-name "*.xmlx" -o \
-    		-name "*.doc" -o \
-    		-name "*.xml" -o \
-    		-name "*.rtf" -o \
-    		-name "*.od*" -o \
-    		-name "*.txt"
-    	;;
-    *)display_help
-    	;;
-esac;
+while getopts 'mvaeicdh' opt; do
+    case $opt in
+        m)ext="\.jpeg$\|\.jpg$\|\.png$\|\.gif$\|\.webm$";; # memes
+        v)ext="\.mkv$\|\.mp4$\|\.avi$\|\.webm$";; # video
+        a)ext="\.flac$\|\.opus$\|\.mp3$\|\.m4a$\|\.ogg$\|\.wav$";; # audio
+        e)ext="\.mobi$\|\.epub$\|\.azw3$\|\.rtf$\|\.pdf$";; # ebook
+        i)ext="\.jpeg$\|\.jpg$\|\.png$\|\.gif$\|\.svg$\|\.xcf$";; # image
+        c)ext="\.java$\|\.json$\|\.html$\|\.cpp$\|\.py$\|\.pl$\|\.sh$\|\.c$";; # code
+        d)ext=".docx$\|.xmlx$\|.doc$\|xml$\|.rtf$\|.odt$\|.txt";; # document
+        h|:|\?|*)display_help;;
+    esac;
+done
+
+find "$PWD" -mount -type f | grep --color "$ext"

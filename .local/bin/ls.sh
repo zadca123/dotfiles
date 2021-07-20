@@ -2,7 +2,7 @@
 
 ls="ls --color=auto --group-directories-first"
 exa="exa --icons --group-directories-first"
-while getopts ':n:l:t:h' opt; do
+while getopts 'nlth' opt; do
       case "${opt}" in
           n)
               $ls -t
@@ -16,7 +16,7 @@ while getopts ':n:l:t:h' opt; do
               ls --human-readable --size -1 -S --classify
               $exa --sort=size --long --no-permissions --no-user --no-time --git
               ;;
-          h|:|*|\?)
+          h|:|\?|*)
               echo Usage: "$0" '[ls,ll,lt,exa,exl,ext]'
               ;;
       esac

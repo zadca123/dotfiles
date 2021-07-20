@@ -22,7 +22,7 @@ fd="find $PWD -mount"
 while getopts 'e:p:s:t:h' opt; do
     case $opt in
         e) $fd -empty -delete || $fd -empty -exec rm -r "{}" \; ;;
-        p) $fd -type f -name '*.part' -delete || $fd -type f -name '*.part' -exec rm "{}" \; ;;
+        p) $fd -type f -name "*.part$" -delete || $fd -type f -name "*.part" -exec rm "{}" \; ;;
         s) $fd -type f -size "${OPTARG}M" -exec du -h "{}" \; | sort -n;;
         # t) $fd -type f -mtime "-${OPTARG}" -exec sort -c '%y %n' "{}" \; | sort -n ;;
         t) $fd -type f -mtime "${OPTARG}" -exec ls -gort --full-time "{}" \; | sed 's/\..........//' |cut -d' ' -f4,5,7 ;;
